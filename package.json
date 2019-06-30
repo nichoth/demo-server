@@ -1,0 +1,25 @@
+{
+  "name": "demo-server",
+  "author": "Nick Thomas <nichoth@gmail.com>",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+   "npm": "^5.0.0",
+   "node": "^8.0.0"
+ },
+  "scripts": {
+    "start": "node src/index.js",
+    "prepush": "./test/githook/prepush.sh",
+    "preversion": "npm run lint && npm test",
+    "postversion": "git push --no-verify && git push --tags --no-verify",
+    "lint": "eslint . --config .eslintrc",
+    "test": "tape test/{**/*,*}.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+    "@babel/preset-env": "^7.4.5",
+  }
+}
