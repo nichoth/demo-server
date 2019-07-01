@@ -2,13 +2,12 @@
   "name": "demo-server",
   "author": "Nick Thomas <nichoth@gmail.com>",
   "version": "0.0.0",
-  "main": "src/index.js",
-  "description": "",
   "main": "index.js",
+  "description": "",
   "engines": {
-   "npm": "^5.0.0",
-   "node": "^8.0.0"
- },
+    "npm": "^5.0.0",
+    "node": "^8.0.0"
+  },
   "scripts": {
     "start": "node src/index.js",
     "prepush": "./test/githook/prepush.sh",
@@ -19,7 +18,10 @@
   },
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
-    "@babel/preset-env": "^7.4.5",
+    "express": "^4.17.1",
+    "@babel/preset-env": "^7.4.5"
+  },
+  "devDependencies": {
+    "tape": "^4.11.0"
   }
 }
