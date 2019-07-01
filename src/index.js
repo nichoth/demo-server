@@ -1,0 +1,24 @@
+// require('dotenv').config()
+var express = require('express');
+var app = express();
+var port = 8000;
+var neo4j = require('neo4j-driver').v1;
+var process = require('process');
+
+var driver = neo4j.driver("bolt://localhost",
+    neo4j.auth.basic("neo4j", "neo4j")
+)
+
+app.get('/', function (req, res) {
+    res.send('Hello World!')
+})
+
+process.on('exit', (code) => {
+    console.log(`About to exit with code: ${code}`);
+    driver.close();
+});
+                                            
+app.listen(port, function () {
+    console.log(`Demo app listening on port ${port}!`)
+})
+
