@@ -17,10 +17,14 @@ app.get('/', function (req, res) {
     res.send('Hello World!')
 })
 
+app.get('/ab*cd', function (req, res) {
+  res.send('ab*cd')                                                       
+})
+
 var session = driver.session()
 
 const resultPromise = session .run( 'CREATE (a:Person {name: $name}) RETURN a',
-  {name: 'Alize'})
+  {name: 'Alice'})
 
 resultPromise.then(function (result) {
   session.close();
@@ -32,10 +36,8 @@ resultPromise.then(function (result) {
 
 resultPromise.catch(function (err) {
     console.log('err', err)
-})
+});
 
 app.listen(port, function () {
     console.log(`Demo app listening on port ${port}`)
-})
-
-
+});
